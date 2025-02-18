@@ -44,6 +44,8 @@ jobs:
         run: yarn build-release
         env:
           RUST_TARGET: ${{ matrix.target }}
+      - name: Update Cargo
+        run: cargo update
       - name: Build CLI
         run: |
           cargo build --release --features cli --target ${{ matrix.target }}
